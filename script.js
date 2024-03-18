@@ -12,13 +12,13 @@ function addR() {
     var row = grid.insertRow(numRows);
 
     //Insert the appropiate number of cells per row
-    for(var counter = 0; counter <= numCols; counter++){
-        var cell = row.insertCell(counter);
+    for(let counter = 0; counter <= numCols; counter++){
+        let cell = row.insertCell(counter);
 
-        //If color was selected, set that cell's background color to that color
-        if(colorSelected != ""){
+        //Changes the color of the cell when clicked
+        cell.addEventListener("click", function(){
             cell.style.backgroundColor = colorSelected;
-        }
+        });
     }
     //Increment to keep track of where the next row should be added
     numRows++;
@@ -40,13 +40,14 @@ function addC() {
         var rows = document.getElementsByTagName("tr");
 
         //Inserting an additional cell/column to each row
-        for(var x = 0; x < numRows; x++){
-            var row = rows[x];
-            var col = row.insertCell(numCols);
+        for(let x = 0; x < numRows; x++){
+            let row = rows[x];
+            let col = row.insertCell(numCols);
 
-            //If a color was selected, set the column/cell background color to that color
-            if(colorSelected != "")
+            //Changes the color of the cell when clicked
+            col.addEventListener("click", function(){
                 col.style.backgroundColor = colorSelected;
+            });
         }
     }
 }
