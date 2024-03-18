@@ -8,8 +8,9 @@ function addR() {
     var grid = document.getElementById("grid");
     var row = grid.insertRow(numRows);
     var cell = row.insertCell(0);
-    // cell.innerHTML = numRows;
+    cell.innerHTML = numRows;
     numRows++;
+    console.log(numRows);
 }
 
 // Add a column
@@ -19,16 +20,25 @@ function addC() {
     for(var x = 0; x < numRows; x++){
         var row = rows[x];
         var col = row.insertCell(numCols);
-        // col.innerHTML = numCols;
+        col.innerHTML = numCols;
     }
 }
 
 // Remove a row
 function removeR() {
+    if(numRows >= 1){
+        var grid = document.getElementById("grid");
+        grid.deleteRow(numRows - 1);
+        numRows--;
+    }
+    else{
+        console.log("No rows to delete");
+    }
 }
 
 // Remove a column
 function removeC() {
+
 }
 
 // Set global variable for selected color
@@ -39,12 +49,15 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
+
 }
 
 // Fill all cells
 function fillAll(){
+
 }
 
 // Clear all cells
 function clearAll(){
+
 }
