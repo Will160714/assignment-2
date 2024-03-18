@@ -12,10 +12,8 @@ function addR() {
         if(colorSelected != ""){
             cell.style.backgroundColor = colorSelected;
         }
-        cell.innerHTML = numRows;
     }
     numRows++;
-    console.log(numRows);
 }
 
 // Add a column
@@ -31,7 +29,6 @@ function addC() {
             var col = row.insertCell(numCols);
             if(colorSelected != "")
                 col.style.backgroundColor = colorSelected;
-            col.innerHTML = numCols;
         }
     }
 }
