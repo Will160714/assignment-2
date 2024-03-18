@@ -74,5 +74,8 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-
+    var cells = document.getElementsByTagName("td");
+    for(var counter = 0; counter < cells.length; counter++){
+        cells[counter].style.backgroundColor = "white";
+    }
 }
