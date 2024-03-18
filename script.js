@@ -9,6 +9,9 @@ function addR() {
     var row = grid.insertRow(numRows);
     for(var counter = 0; counter <= numCols; counter++){
         var cell = row.insertCell(counter);
+        if(colorSelected != ""){
+            cell.style.backgroundColor = colorSelected;
+        }
         cell.innerHTML = numRows;
     }
     numRows++;
@@ -17,12 +20,19 @@ function addR() {
 
 // Add a column
 function addC() {
-    numCols++;
-    var rows = document.getElementsByTagName("tr");
-    for(var x = 0; x < numRows; x++){
-        var row = rows[x];
-        var col = row.insertCell(numCols);
-        col.innerHTML = numCols;
+    if(numRows == 0){
+        addR();
+    }
+    else{
+        numCols++;
+        var rows = document.getElementsByTagName("tr");
+        for(var x = 0; x < numRows; x++){
+            var row = rows[x];
+            var col = row.insertCell(numCols);
+            if(colorSelected != "")
+                col.style.backgroundColor = colorSelected;
+            col.innerHTML = numCols;
+        }
     }
 }
 
@@ -61,7 +71,12 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-
+    var cells = document.getElementsByTagName("td");
+    for(var counter = 0; counter < cells.length; counter++){
+        if(cells[counter].style.backgroundColor == ""){
+            cells[counter].style.backgroundColor = colorSelected;
+        }
+    }
 }
 
 // Fill all cells
@@ -76,6 +91,6 @@ function fillAll(){
 function clearAll(){
     var cells = document.getElementsByTagName("td");
     for(var counter = 0; counter < cells.length; counter++){
-        cells[counter].style.backgroundColor = "white";
+        cells[counter].style.backgroundColor = "";
     }
 }
