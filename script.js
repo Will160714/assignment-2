@@ -7,8 +7,10 @@ let colorSelected;
 function addR() {
     var grid = document.getElementById("grid");
     var row = grid.insertRow(numRows);
-    var cell = row.insertCell(0);
-    cell.innerHTML = numRows;
+    for(var counter = 0; counter <= numCols; counter++){
+        var cell = row.insertCell(counter);
+        cell.innerHTML = numRows;
+    }
     numRows++;
     console.log(numRows);
 }
@@ -38,7 +40,17 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-
+    if(numCols >= 0){
+        var rows = document.getElementsByTagName("tr");
+        for(var counter = 0; counter < numRows; counter++){
+            var row = rows[counter];
+            row.deleteCell(numCols);
+        }
+        numCols--;
+    }
+    else{
+        console.log("No columns to delete");
+    }
 }
 
 // Set global variable for selected color
