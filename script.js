@@ -20,6 +20,7 @@ function addR() {
             cell.style.backgroundColor = colorSelected;
         });
     }
+    
     //Increment to keep track of where the next row should be added
     numRows++;
 }
@@ -34,7 +35,7 @@ function addC() {
     //Else insert a column to all the rows of the table
     else{
         //Increment to keep track of where the next column should be added
-        numCols++;
+            numCols++;
 
         //Getting an array of elements that represents the rows of the table
         var rows = document.getElementsByTagName("tr");
@@ -70,6 +71,11 @@ function removeR() {
     else{
         console.log("No rows to delete");
     }
+
+    //Reset numCols to 0 if the entire table/grid is cleared
+    if(numRows <= 0){
+        numCols = 0;
+    }
 }
 
 // Remove a column
@@ -92,6 +98,11 @@ function removeC() {
     //Else notify user that there are no columns to delete
     else{
         console.log("No columns to delete");
+    }
+
+    if(numCols <= -1){
+        numCols = 0;
+        numRows = 0;
     }
 }
 
