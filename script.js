@@ -67,14 +67,10 @@ function removeR() {
         numRows--;
     }
 
-    //Else notify user that there are no rows to delete
-    else{
-        console.log("No rows to delete");
-    }
-
-    //Reset numCols to 0 if the entire table/grid is cleared
+    //Reset numCols and numRows to 0 if the entire table/grid is cleared
     if(numRows <= 0){
         numCols = 0;
+        numRows = 0;
     }
 }
 
@@ -95,11 +91,7 @@ function removeC() {
         numCols--;
     }
 
-    //Else notify user that there are no columns to delete
-    else{
-        console.log("No columns to delete");
-    }
-
+    //Reset numCols and numRows to 0 if the entire table/grid is cleared
     if(numCols <= -1){
         numCols = 0;
         numRows = 0;
